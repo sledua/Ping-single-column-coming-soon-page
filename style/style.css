@@ -1,33 +1,52 @@
+@font-face {
+    font-family: 'Manrope-Medium';
+    src: url('../fonts/Manrope-Medium.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'Manrope-Bold';
+    src: url('../fonts/Manrope-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+}
 body {
     margin: 0;
+    font-size: .8125rem;
+    font-weight: 500;
+    font-family: 'Manrope-Medium', sans-serif;
 }
 h1 {
     font-size: 1.25rem;
 }
 .container {
-    max-width: 90rem;
     width: 100%;
+    max-width: 90em;
     height: 100vh;
     margin: 0 auto;
 }
 .container-card {
     display: flex;
     align-items: center;
+    margin-top: 9em;
 }
 .card {
-    width: 45.3135em;
-    height: 17.5em;
+    width: 55em;
+    height: 21em;
     display: flex;
     border: 1px dotted green;
     margin: 0 auto;
 }
 .img-box {
-    max-width: 17.75em;
-    margin-right: 2.5rem;
+    width: 40%;
+}
+.card-info {
+    width: 60%;
 }
 .img-box img {
     width: 100%;
-    background-size: cover;
+    height: 100%;
+    display: block;
 }
 .card-info-autor {
     display: flex;
