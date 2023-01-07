@@ -1,3 +1,4 @@
+/*fonts include*/
 @font-face {
     font-family: 'Manrope-Medium';
     src: url('../fonts/Manrope-Medium.ttf') format('truetype');
@@ -10,13 +11,229 @@
     font-style: normal;
     font-weight: 700;
 }
-body {
-    margin: 0;
-    font-size: .8125rem;
-    font-weight: 500;
-    font-family: 'Manrope-Medium', sans-serif;
+/*var lines*/
+:root {
+    --clr-very-dark-grayish-blue: hsl(217, 19%, 35%);
+    --clr-desaturated-dark-blue: hsl(214, 17%, 51%);
+    --clr-grayish-blue: hsl(212, 23%, 69%);
+    --clr-light-grayish-blue: hsl(210, 46%, 95%);
+
+    --ff-base: 'Manrope-Medium', sans-serif;
+    --ff-accent: 'Manrope-Bold', sans-serif;
+
+    --fw-regular: 500;
+    --fw-bold: 700; 
 }
-h1 {
+/*
+Reset css base
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  h1, h2, h3 {
+    line-height: 1.4;
+  }
+  p {
+    color: var(--clr-desaturated-dark-blue);
+  }
+/*
+- Mobile: 375px
+- Desktop: 1440px
+my custom style
+*/
+body {
+    font-size: .875rem;
+    font-weight: var(--fw-regular);
+    font-family: var(--ff-base);
+    display: grid;
+    place-content: center;
+    background-color: var(--clr-light-grayish-blue);
+}
+/*utilities*/
+.flex-group {
+    --btn-size: 2.3rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.flex-group__share {
+    --btn-size: 2rem;
+    margin: 0 -1.9rem -1.9rem;
+    padding: 1.9rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--clr-very-dark-grayish-blue);
+    
+}
+.hide {
+    display: none;
+}
+/*post style*/
+.post {
+    --post-padding: 1.9rem;
+    --post-spacing: 1.8rem;
+    display: grid;
+    background-color: white;
+    border-radius: .5rem;
+    overflow: hidden;
+}
+.post__content {
+    display: grid;
+    gap: var(--post-spacing);
+    padding: var(--post-padding);
+}
+.post__title {
+    font-size: 1.2rem;
+    font-family: var(--ff-accent);
+    font-weight: var(--fw-bold);
+    color: var(--clr-very-dark-grayish-blue);
+}
+.post__description {
+    font-size: .9375rem;
+    line-height: 1.5;
+    letter-spacing: 0.4px;
+}
+.post__thumb {
+    width: 3.125em;
+    height: 3.125em;
+    border-radius:  calc(3.125em / 2);
+}
+.post__name-group {
+    flex: 1;
+    line-height: 1.5;
+}
+.post__name-author {
+    font-family: var(--ff-accent);
+    color: var(--clr-very-dark-grayish-blue);
+}
+.post__date {
+    color: var(--clr-grayish-blue);
+}
+.btn__share {
+    width: var(--btn-size);
+    height: var(--btn-size);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: calc(var(--btn-size) / 2);
+    background-color: var(--clr-light-grayish-blue);
+}
+.btn-active {
+    width: var(--btn-size);
+    height: var(--btn-size);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: calc(var(--btn-size) / 2);
+    background-color: var(--clr-desaturated-dark-blue);
+}
+.btn-active[data-icon="i-share"]::before {
+    content: '';
+    background-image: url("../images/icon-share-active.svg");
+    width: 15px;
+    height: 13px;
+}
+.btn__share[data-icon="i-share"]::before {
+    content: '';
+    background-image: url("../images/icon-share.svg");
+    width: 15px;
+    height: 13px;
+}
+.btn__social {
+    cursor: pointer;
+    text-decoration: none;
+    margin-top: .25rem;
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: var(--clr-very-dark-grayish-blue);
+}
+.flex-group__share > span {
+    font-family: var(--ff-base);
+    font-weight: 100;
+    font-size: .8125rem;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: var(--clr-grayish-blue);
+}
+/* .flex-group__share > *{
+    border: 1px solid pink;
+} */
+.btn__social[data-icon="i-f"]::before {
+    content: '';
+    background-image: url("../images/icon-facebook.svg");
+    width: 20px;
+    height: 20px;
+}
+.btn__social[data-icon="i-t"]::before {
+    content: '';
+    background-image: url("../images/icon-twitter.svg");
+    width: 20px;
+    height: 17px;
+}
+.btn__social[data-icon="i-p"]::before {
+    content: '';
+    background-image: url("../images/icon-pinterest.svg");
+    width: 20px;
+    height: 20px;
+}
+/* h1 {
     font-size: 1.25rem;
 }
 .container {
@@ -60,4 +277,4 @@ h1 {
 }
 .attribution {
     display: none;
-}
+} */
