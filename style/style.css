@@ -89,6 +89,8 @@ body {
     display: grid;
     place-content: center;
     background-color: var(--clr-light-grayish-blue);
+    margin: 1rem;
+    
 }
 /*utilities*/
 .flex-group {
@@ -122,21 +124,23 @@ body {
     background-color: white;
     border-radius: .5rem;
     overflow: hidden;
+    box-shadow: 0px 7px 30px -8px rgba(0,0,0,0.75);
 }
+
 .post__content {
     display: grid;
     gap: var(--post-spacing);
     padding: var(--post-padding);
 }
 .post__title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-family: var(--ff-accent);
     font-weight: var(--fw-bold);
     color: var(--clr-very-dark-grayish-blue);
 }
 .post__description {
-    font-size: .9375rem;
-    line-height: 1.5;
+    font-size: .875rem;
+    line-height: 1.4;
     letter-spacing: 0.4px;
 }
 .post__thumb {
@@ -232,6 +236,51 @@ body {
     background-image: url("../images/icon-pinterest.svg");
     width: 20px;
     height: 20px;
+}
+@media (min-width: 660px) {
+    body {
+        margin: 0 3rem;
+    }
+    .post {
+        --post-padding: 1rem;
+        grid-template-columns: 1fr 1fr;
+    }
+    .post__img > img{
+        height: 100%;
+        object-fit: cover;
+    }
+}
+@media (min-width: 950px) {
+    body {
+        margin: 0 6rem;
+    }
+    .post {
+        --post-padding: 2rem 3rem 2rem 2.3rem;
+        --post-spacing: 0.3rem;
+        grid-template-columns: 1fr 1fr;
+    }
+    .post__description {
+        font-size: 0.73rem;
+        line-height: 1.8;
+        letter-spacing: 0.3px;
+        word-spacing: 0.2px;
+    }
+}
+@media (min-width: 1120px) {
+    body {
+        margin: 0 10rem;
+    }
+    .post {
+        --post-padding: 2rem 3rem 2rem 2.3rem;
+        --post-spacing: 0.3rem;
+        grid-template-columns: 1fr 1fr;
+    }
+    /* .post__description {
+        font-size: 0.73rem;
+        line-height: 1.8;
+        letter-spacing: 0.3px;
+        word-spacing: 0.2px;
+    } */
 }
 /* h1 {
     font-size: 1.25rem;
