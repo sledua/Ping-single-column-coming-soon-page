@@ -268,13 +268,22 @@ body {
 }
 @media (min-width: 1120px) {
     body {
-        margin: 0 10rem;
+        margin: 0 21rem;
     }
     .post {
         --post-padding: 2rem 3rem 2rem 2.3rem;
         --post-spacing: 0.3rem;
         grid-template-columns: 1fr 1fr;
     }
+    .post__title {
+    font-size: 1.7rem;
+}
+.post__description {
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: 0.8px;
+    word-spacing: 0.7px;
+}
     /* .post__description {
         font-size: 0.73rem;
         line-height: 1.8;
